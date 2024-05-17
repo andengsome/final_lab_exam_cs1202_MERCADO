@@ -4,7 +4,7 @@ def menu():
     game = DiceGame()
     while True:
         if not game.current_user:
-            print("Welcome to Dice Roll Game")
+            print("Welcome to Dice Roll Game!")
             print("1. Register")
             print("2. Log In")
             print("3. Exit")
@@ -39,5 +39,4 @@ def menu():
                 print("Invalid choice. Please try again.")
                 
 if __name__ == "__main__":
-    menu()
-                
+    menu()        
