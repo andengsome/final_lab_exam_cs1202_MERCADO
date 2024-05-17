@@ -1,5 +1,8 @@
 from utils.dice_game import DiceGame
 
-if __name__ == "__main__":
+def main():
     game = DiceGame()
-    game.menu()        
+    game.menu()
+
+if __name__ == "__main__":
+    main()

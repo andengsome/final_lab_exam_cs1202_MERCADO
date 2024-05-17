@@ -14,7 +14,7 @@ class DiceGame:
         if not os.path.exists('data'):
             os.makedirs('data')
         if not os.path.exists('data/rankings.txt'):
-            with open('data/rnkings.txt', 'w') as file:
+            with open('data/rankings.txt', 'w') as file:
                 pass
         else:
             with open('data/rankings.txt', 'r') as file:
@@ -35,7 +35,7 @@ class DiceGame:
                     file.write(f"{scores.username},{score.game_id},{score.points},{score.wins}\n")
     
     def play_game(self):
-       print("Starting game as {self.current_user.username}...")
+       print(f"Starting game as {self.current_user.username}...")
        total_points = 0
        stages_won = 0
        game_id = len(self.scores) + 1
@@ -60,13 +60,13 @@ class DiceGame:
                else:
                    print("It's a tie!")
                    
-                   if player_wins == 3:
+                   if player_wins == 2:
                        round_points += 3
                        total_points += round_points
                        stages_won += 1
                        print(f"You won this stage, {self.current_user.username}!\nTotal points: {total_points}\nStages won: {stages_won}")
                        break
-                   elif cpu_wins == 3:
+                   elif cpu_wins == 2:
                        print("Game over. You didn't win any stages.")
                        return
                    
@@ -103,14 +103,14 @@ class DiceGame:
                 if choice == "1":
                     self.user_manager.register()
                 elif choice == "2":
-                    self.current_user = self.user_manager.login()
+                    self.user_manager.login()
                 elif choice == "3":
                     print("Exiting the game. Goodbye!")
                     break
                 else:
                     print("Invalid choice. Please try again.")
             else:
-                print(f"\nWelcome, {self.current_user.username}!")
+                print(f"\nWelcome, {self.current_user.username}")
                 print("Menu:")
                 print("1. Start game")
                 print("2. Show top scores")

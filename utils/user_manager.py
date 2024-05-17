@@ -9,8 +9,8 @@ class UserManager:
         if not os.path.exists('data'):
             os.makedirs('data')
             if not os.path.exists('data/users.txt'):
-                with open('data/users.txt', 'w') as file;
-                pass
+                with open('data/users.txt', 'w') as file:
+                    pass
             else:
                 with open('data/users.txt', 'r') as file:
                     for line in file:
@@ -51,11 +51,11 @@ class UserManager:
             break
         
         user = User(username, password)
-        self, users[username] = user
-        self, save_users()
+        self.users[username] = user
+        self.save_users()
         print("Registration succesful.")
             
-    def login():
+    def login(self):
         print("LOGIN PAGE")
         username = input("Enter username, or leave blank to cancel: ")
         if not username:
@@ -67,7 +67,6 @@ class UserManager:
         user = self.users.get(username)
         if user and user.password == password:
             print("Login successful.")
-            return user
         else:
             print("Invalid username or password. Please try again.")
             return None
