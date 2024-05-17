@@ -1,1 +1,3 @@
 puta,puta1234
+andeng,{'password': 'andeng123'}
+haha,{'password': 'haha1234'}
