@@ -90,6 +90,38 @@ class DiceGame:
     
     def logout(self):
         self.current_user = None
-
-	def menu():
-		pass
+    
+    def menu(self):
+        while True:
+            if not self.current_user:
+                print("Welcome to Dice Roll Game!")
+                print("1. Register")
+                print("2. Log In")
+                print("3. Exit")
+                choice = input("Enter your choice: ")
+                
+                if choice == "1":
+                    self.user_manager.register()
+                elif choice == "2":
+                    self.current_user = self.user_manager.login()
+                elif choice == "3":
+                    print("Exiting the game. Goodbye!")
+                    break
+                else:
+                    print("Invalid choice. Please try again.")
+            else:
+                print(f"\nWelcome, {self.current_user.username}!")
+                print("Menu:")
+                print("1. Start game")
+                print("2. Show top scores")
+                print("3. Logout")
+                choice = input("Enter you choice, or leave it blank to cancel: ")
+                
+                if choice == '1':
+                    self.play_game()
+                elif choice == '2':
+                    self.show_top_scores()
+                elif choice == '3':
+                    self.logout()
+                else:
+                    print("Invalid choice. Please try again.")
