@@ -2,14 +2,13 @@ import os
 from utils.user import *
 from utils.dice_game import *
 
-diceGame = DiceGame()
+game = DiceGame()
 
 class UserManager:
     def __init__(self):
         self.users = {}
         self.load_users()
 
-#funtion to open, read and iterate the users file inside the data directory
     def load_users(self):
         try:
             with open("data/users.txt", "r") as file:
@@ -21,8 +20,7 @@ class UserManager:
             print("File not found. Created 'data' directory.")
         except Exception as e:
             print(f"Error reading file: {e}")
-
-#function that saves the entered username and password to users file                 
+              
     def save_users(self):
         try:
             with open("data/users.txt", "w") as file:
@@ -31,7 +29,6 @@ class UserManager:
         except Exception as e:
             print(f"Error occurred while saving users: {e}")
 
-#function that checks the username
     def validate_username(self, username):
         if len(username) >= 4:
             if username not in self.users:
@@ -41,15 +38,14 @@ class UserManager:
         else:
             print("Username must be at least 4 characters long.")
 
-#function that checks the password
     def validate_password(self, password):
         if len(password) >= 8:
             return True
         else:
             print("Password must be at least 8 characters long.")
 
-#function to register user
     def register(self):
+        print("\nREGISTRATION PAGE")
         while True:
             username = input("Enter username (at least 4 characters), or leave blank to cancel: ")
             if not username.strip():
@@ -72,9 +68,8 @@ class UserManager:
                 print("Registration failed. Please try again.")
                 return False
 
-#funtion to login user
     def login(self):
-        print("\nLogin")
+        print("\nLOGIN PAGE")
         username = input("Enter username, or leave blank to cancel: ")
         if not username.strip():
             print("Login failed.")
@@ -87,7 +82,7 @@ class UserManager:
 
             if self.users[username]["password"] == password:
                 print("Logged in successfully.")
-                diceGame.game_menu(username)
+                game.dice_menu(username)
             else:
                 print("Invalid username or password.")
                 return

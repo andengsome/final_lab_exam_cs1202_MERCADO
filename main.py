@@ -10,7 +10,7 @@ def main():
         print("1. Register")
         print("2. Login")
         print("3. Exit")
-        choice = input("Enter your choice: ")
+        choice = input("Enter your choice, or leave blank to cancel: ")
         
         if choice == "1":
             go.register()
