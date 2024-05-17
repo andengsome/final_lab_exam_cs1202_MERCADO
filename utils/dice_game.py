@@ -123,7 +123,7 @@ class DiceGame:
             elif user_choice == "2":
                 self.show_top_scores(username) 
             elif user_choice == "3":
-                print(f"Until we play again, {username}!")
+                print(f"'Til we play again, {username}!")
                 print("\nYou logged out successfully.")
                 self.logout()
             else:
